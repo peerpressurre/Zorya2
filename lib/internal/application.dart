@@ -1,22 +1,28 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application_2/presentation/screens/screen1.dart';
-import 'package:flutter_application_2/presentation/widgets/home.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_application_2/presentation/widgets/home.dart';
 
-class Application extends StatelessWidget {
-  const Application({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-       initialRoute: '/',
-    routes: {
-    // When navigating to the "/" route, build the FirstScreen widget.
-    '/': (context) => const Home(),
-    // When navigating to the "/second" route, build the SecondScreen widget.
-    '/screen1': (context) => const Screen1(),
-  },
-       debugShowCheckedModeBanner: false,
-      title: 'Pet Adoption App',
-    );
-  }
-}
+// class Application extends StatelessWidget {
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//       ),
+//       home: SplashScreen(
+//         seconds: 8,
+//         navigateAfterSeconds: const Home(),
+//         title:  const Text(
+//           'SplashScreen Example',
+//           style: TextStyle(
+//               fontWeight: FontWeight.bold,
+//               fontSize: 20.0,
+//               color: Colors.white),
+//         ),
+//         backgroundColor: Colors.lightBlue[200],
+//       )
+//     );
+//   }
+// }

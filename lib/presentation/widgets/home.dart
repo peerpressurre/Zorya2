@@ -1,66 +1,60 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home ({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-   
-
-//  IconButton(
-//               icon: const Icon(Icons.logout),
-//               onPressed: (){Navigator.pushNamed(context, '/screen1');},
-//             ),
-
-
-      //   backgroundColor: Colors.white,
-      // body: 
-      //   Center(    
-      //   child: Stack(
-      //     children: [
-      //        SizedBox(
-      // width: double.infinity,
-      // child: FloatingActionButton(
-      //   backgroundColor: const Colors.white(),
-      //   shape: new RoundedRectangleBorder(),
-      //   elevation: 0.0,
-      //   onPressed: () {
-      //     print("entra");
-      //   },
-      //   child: Text(
-      //     'Search',
-      //     style: TextStyle(color: Colors.white),
-      //   ),
-            // ElevatedButton(
-            //    style: ElevatedButton.styleFrom(
-            //                     fixedSize: const Size(80, 25),
-            //                      backgroundColor: Colors.white, // background (button) color
-            //                      foregroundColor: Colors.black, // foreground (text) color
-            //                      shadowColor: Colors.white,
-                                
-            //                   ),
-            //                   onPressed:(){Navigator.pushNamed(context, '/screen1');},
-            //                 child: const Text(
-            //                   "Skip >",
-            //                   style: TextStyle( color: Colors.black87,
-            //        fontSize: 12,
-            //        height: 2,
-            //        decorationThickness: 3,
-            //        fontWeight: FontWeight.w700,
-            //        decorationStyle: TextDecorationStyle.wavy,
-            //        fontStyle: FontStyle.normal,
-            //        )),
-            //                 ),
-              const Padding(padding: EdgeInsets.fromLTRB(0, 100, 0, 200),
-              child:  Image(image: AssetImage("assets/images/origdog.png"), height: 400, width: 250,),
-              ),
-             
-            // Image(image: AssetImage("assets/images/whitedog.jpg"))
-        ]      
-        )
-      )
-    );
-      
-  }
+   Widget build(BuildContext context) {
+    return 
+    Scaffold(
+        appBar: AppBar(
+          title: const Text('Account'),
+          leading: const Icon(Icons.animation_outlined),
+                    actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: (){exit(0);},
+            ),
+          ],
+          backgroundColor: Colors.purple[200],
+        ),
+        backgroundColor: Colors.purple[100],
+          body: Center(
+            child:
+                    Stack(
+                      children:[                
+                     Align(
+                       alignment: const FractionalOffset(0.5, 0.4),
+                           child: 
+                             Padding(padding: const EdgeInsets.fromLTRB(50, 50, 50, 25),
+                           child: 
+                           ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                fixedSize: const Size(100, 50),
+                                 backgroundColor: Colors.purple, // background (button) color
+                                 foregroundColor: Colors.white, // foreground (text) color
+                              ),
+                            onPressed:(){Navigator.pushNamed(context, '/screen1');},
+                            child: const Text("Cat 1"),),
+                      )
+                      ),
+                      Align(
+                          alignment: const FractionalOffset(0.5, 0.4),        
+                          child: 
+                            Padding(padding: const EdgeInsets.fromLTRB(50, 150, 50, 25),
+                           child: 
+                            ElevatedButton( 
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: const Size(100, 50),
+                                 backgroundColor: Colors.purple, // background (button) color
+                                 foregroundColor: Colors.white, // foreground (text) color
+                              ),
+                              onPressed:(){Navigator.pushNamed(context, '/screen2');},
+                       child: const Text("Cat 2"),)
+                      )
+                    )
+                    ])
+                     ),                   
+                  );                                      
+   }
 }
