@@ -14,11 +14,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/icondog.jpg
-    - assets/images/whitedog.jpg
-    - assets/images/origdog.png
+    - assets/registration/regscreen.jpg
+    - assets/white_logo.png
