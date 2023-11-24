@@ -21,3 +21,4 @@ flutter:
   assets:
     - assets/registration/regscreen.jpg
     - assets/white_logo.png
+    - assets/home/home_back.jpg

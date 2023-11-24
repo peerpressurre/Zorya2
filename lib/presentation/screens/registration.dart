@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/presentation/screens/home.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -84,10 +85,11 @@ class _RegistrationState extends State<Registration> {
                       });
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: isSignUp
-                            ? const Color(0xFFFBCD72).withOpacity(0.9)
-                            : Colors.black87.withOpacity(0.5),
-                        fixedSize: const Size.fromHeight(40)),
+                      primary: isSignUp
+                          ? const Color(0xFFFBCD72).withOpacity(0.9)
+                          : Colors.black87.withOpacity(0.5),
+                      fixedSize: Size.fromHeight(getButtonHeight(isSignUp)),
+                    ),
                     child: const Text('Sign Up'),
                   ),
                   ElevatedButton(
@@ -102,6 +104,7 @@ class _RegistrationState extends State<Registration> {
                       primary: isSignUp
                           ? Colors.black87.withOpacity(0.5)
                           : const Color(0xFFFBCD72),
+                      fixedSize: Size.fromHeight(getButtonHeight(!isSignUp)),
                     ),
                     child: const Text('Log In'),
                   ),
@@ -117,7 +120,11 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      // Add your onPressed logic here
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Home()),
+                    );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black87.withOpacity(0.4),
@@ -149,6 +156,10 @@ class _RegistrationState extends State<Registration> {
     );
   }
 
+  double getButtonHeight(bool isPressed) {
+    return isPressed ? 40.0 : 20.0;
+  }
+
   Widget _buildSignUpFields() {
     return Column(
       children: [
@@ -175,7 +186,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding:  EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -208,7 +219,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding:  EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -241,7 +252,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding:  EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -288,7 +299,11 @@ class _RegistrationState extends State<Registration> {
           children: [
             ElevatedButton(
               onPressed: () {
-                // Handle the button press
+                 Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Home()),
+                    );
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFF3F945D), // Background color
@@ -346,7 +361,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding:  EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -379,7 +394,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding:  EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -393,7 +408,11 @@ class _RegistrationState extends State<Registration> {
           children: [
             ElevatedButton(
               onPressed: () {
-                // Handle the button press
+               Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Home()),
+                    );
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFF3F945D), // Background color
