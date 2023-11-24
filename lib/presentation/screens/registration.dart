@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class Registration extends StatefulWidget {
@@ -107,32 +109,37 @@ class _RegistrationState extends State<Registration> {
               ),
               const SizedBox(height: 20),
               //TEXT FIELD: PIB
-                isSignUp
-              ? _buildSignUpFields()
-              : _buildLogInFields(),
-          const SizedBox(height: 10),
+              isSignUp ? _buildSignUpFields() : _buildLogInFields(),
+              const SizedBox(height: 10),
               //TEXT FIELD: SKIP
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                      height: 40,
-                      width: 200, //change to percentage
-                      decoration: BoxDecoration(
-                          color: Colors.black87.withOpacity(0.4),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10))),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Пропустити",
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(0.8),
-                                fontSize: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add your onPressed logic here
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black87.withOpacity(0.4),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    // ignore: sized_box_for_whitespace
+                    child: Container(
+                      height: 35,
+                      width: 190, // You might want to adjust the width
+                      child: Center(
+                        child: Text(
+                          "Пропустити",
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 16,
                           ),
-                        ],
-                      ))
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -168,7 +175,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding:  EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -201,7 +208,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding:  EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -234,7 +241,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding:  EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -267,7 +274,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding: EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -276,42 +283,42 @@ class _RegistrationState extends State<Registration> {
           ],
         ),
         const SizedBox(height: 30),
-         Row(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Handle the button press
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color(0xFF3F945D), // Background color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(9), // BorderRadius
+                ),
+                minimumSize: const Size(250, 45), // Size of the button
+              ),
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle the button press
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF3F945D), // Background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9), // BorderRadius
-                      ),
-                      minimumSize: const Size(250, 45), // Size of the button
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Зареєструватися",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              wordSpacing: 15),
-                        ),
-                      ],
-                    ),
-                  )
+                  Text(
+                    "Зареєструватися",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        wordSpacing: 15),
+                  ),
                 ],
               ),
+            )
+          ],
+        ),
       ],
     );
   }
 
 //LOG IN WIDGET
-   Widget _buildLogInFields() {
+  Widget _buildLogInFields() {
     return Column(
       children: [
         const SizedBox(height: 20),
@@ -339,7 +346,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding:  EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -372,7 +379,7 @@ class _RegistrationState extends State<Registration> {
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black87),
                     ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    contentPadding:  EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -381,36 +388,36 @@ class _RegistrationState extends State<Registration> {
           ],
         ),
         const SizedBox(height: 40),
-         Row(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Handle the button press
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color(0xFF3F945D), // Background color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(9), // BorderRadius
+                ),
+                minimumSize: const Size(250, 45), // Size of the button
+              ),
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle the button press
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF3F945D), // Background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9), // BorderRadius
-                      ),
-                      minimumSize: const Size(250, 45), // Size of the button
-                    ),
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Увійти",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              wordSpacing: 15),
-                        ),
-                      ],
-                    ),
-                  )
+                  Text(
+                    "Увійти",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        wordSpacing: 15),
+                  ),
                 ],
               ),
+            )
+          ],
+        ),
       ],
     );
   }
