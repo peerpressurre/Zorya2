@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/presentation/screens/registration.dart';
-import 'package:flutter_application_2/presentation/widgets/home.dart';
 
 class Application extends StatelessWidget {
   // This widget is the root of your application.

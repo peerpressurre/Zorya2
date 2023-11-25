@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/presentation/screens/home.dart';
+import 'package:slide_switcher/slide_switcher.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -11,6 +12,7 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+int switcherIndex1 = 0;
   String pib = '';
   String phoneNumber = '';
   String password = '';
@@ -72,47 +74,69 @@ class _RegistrationState extends State<Registration> {
                 ],
               ),
               const SizedBox(height: 5),
-              //SWITCH BUTTONS
+              // SWITCH BUTTONS
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        isSignUp = true;
-                        pib = phoneNumber = password = confirmPassword = '';
-                        nameParts = []; // Switch to Sign Up mode
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: isSignUp
-                          ? const Color(0xFFFBCD72).withOpacity(0.9)
-                          : Colors.black87.withOpacity(0.5),
-                      fixedSize: Size.fromHeight(getButtonHeight(isSignUp)),
-                    ),
-                    child: const Text('Sign Up'),
+                  Column(
+                    children: [
+                      SlideSwitcher(
+                        children: [
+                          Text('Sign up', style: TextStyle(color:  switcherIndex1 == 0 ? Colors.black87 : Colors.white)),
+                          Text('Log in', style: TextStyle(color:switcherIndex1 == 1 ? Colors.black87 : Colors.white)),
+                        ],
+                        onSelect: (index) =>
+                            setState(() => switcherIndex1 = index),
+                        containerHeight: 40,
+                        containerWight: 350,
+                        containerColor: Colors.black87.withOpacity(0.5),
+                        slidersColors: [const Color(0xFFFBCD72).withOpacity(0.9), ],
+                      ),
+                      const SizedBox(height: 20),
+                      if (switcherIndex1 == 0) ...[
+                        _buildSignUpFields()
+                      ] else ...[
+                        _buildLogInFields()
+                      ],
+                    ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        isSignUp = false; // Switch to Log In mode
-                        pib = phoneNumber = password = confirmPassword = '';
-                        nameParts = [];
-                      });
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: isSignUp
-                          ? Colors.black87.withOpacity(0.5)
-                          : const Color(0xFFFBCD72),
-                      fixedSize: Size.fromHeight(getButtonHeight(!isSignUp)),
-                    ),
-                    child: const Text('Log In'),
-                  ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       isSignUp = true;
+                  //       pib = phoneNumber = password = confirmPassword = '';
+                  //       nameParts = []; // Switch to Sign Up mode
+                  //     });
+                  //   },
+                  //   style: ElevatedButton.styleFrom(
+                  //     primary: isSignUp
+                  //         ? const Color(0xFFFBCD72).withOpacity(0.9)
+                  //         : Colors.black87.withOpacity(0.5),
+                  //     fixedSize: Size.fromHeight(getButtonHeight(isSignUp)),
+                  //   ),
+                  //   child: const Text('Sign Up'),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       isSignUp = false; // Switch to Log In mode
+                  //       pib = phoneNumber = password = confirmPassword = '';
+                  //       nameParts = [];
+                  //     });
+                  //   },
+                  //   style: ElevatedButton.styleFrom(
+                  //     primary: isSignUp
+                  //         ? Colors.black87.withOpacity(0.5)
+                  //         : const Color(0xFFFBCD72),
+                  //     fixedSize: Size.fromHeight(getButtonHeight(!isSignUp)),
+                  //   ),
+                  //   child: const Text('Log In'),
+                  // ),
                 ],
               ),
-              const SizedBox(height: 20),
+              // const SizedBox(height: 20),
               //TEXT FIELD: PIB
-              isSignUp ? _buildSignUpFields() : _buildLogInFields(),
+              // isSignUp ? _buildSignUpFields() : _buildLogInFields(),
               const SizedBox(height: 10),
               //TEXT FIELD: SKIP
               Row(
@@ -120,11 +144,10 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Home()),
-                    );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Home()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black87.withOpacity(0.4),
@@ -150,7 +173,7 @@ class _RegistrationState extends State<Registration> {
                 ],
               ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -170,7 +193,7 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.8),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
@@ -203,7 +226,7 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.8),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
@@ -236,7 +259,7 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.8),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
@@ -269,7 +292,7 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.8),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
@@ -299,14 +322,14 @@ class _RegistrationState extends State<Registration> {
           children: [
             ElevatedButton(
               onPressed: () {
-                 Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Home()),
-                    );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
               },
               style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF3F945D), // Background color
+                primary: const Color(0xFF3F945D)
+                    .withOpacity(0.8), // Background color
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9), // BorderRadius
                 ),
@@ -408,11 +431,10 @@ class _RegistrationState extends State<Registration> {
           children: [
             ElevatedButton(
               onPressed: () {
-               Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Home()),
-                    );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFF3F945D), // Background color
