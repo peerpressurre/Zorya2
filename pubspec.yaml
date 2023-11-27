@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.0
+  google_fonts: ^6.1.0
   segmented_button_slide: ^1.0.4
   slide_switcher: ^1.1.2
 

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/presentation/screens/home.dart';
 import 'package:slide_switcher/slide_switcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -12,7 +13,7 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-int switcherIndex1 = 0;
+  int switcherIndex1 = 0;
   String pib = '';
   String phoneNumber = '';
   String password = '';
@@ -82,15 +83,25 @@ int switcherIndex1 = 0;
                     children: [
                       SlideSwitcher(
                         children: [
-                          Text('Sign up', style: TextStyle(color:  switcherIndex1 == 0 ? Colors.black87 : Colors.white)),
-                          Text('Log in', style: TextStyle(color:switcherIndex1 == 1 ? Colors.black87 : Colors.white)),
+                          Text('Sign up',
+                              style: TextStyle(
+                                  color: switcherIndex1 == 0
+                                      ? Colors.black87
+                                      : Colors.white)),
+                          Text('Log in',
+                              style: TextStyle(
+                                  color: switcherIndex1 == 1
+                                      ? Colors.black87
+                                      : Colors.white)),
                         ],
                         onSelect: (index) =>
                             setState(() => switcherIndex1 = index),
                         containerHeight: 40,
                         containerWight: 350,
                         containerColor: Colors.black87.withOpacity(0.5),
-                        slidersColors: [const Color(0xFFFBCD72).withOpacity(0.9), ],
+                        slidersColors: [
+                          const Color(0xFFFBCD72).withOpacity(0.9),
+                        ],
                       ),
                       const SizedBox(height: 20),
                       if (switcherIndex1 == 0) ...[
@@ -203,13 +214,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'ПІБ',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                      hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -236,13 +254,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Номер телефону',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                    hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 8),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -269,13 +294,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Пароль',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                      hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -302,13 +334,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Підтвердіть пароль',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                      hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -328,24 +367,27 @@ int switcherIndex1 = 0;
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF3F945D)
-                    .withOpacity(0.8), // Background color
+                primary: const Color(0xFFFBCD72).withOpacity(0.9),
+                // const Color(0xFF3F945D).withOpacity(0.5)
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9), // BorderRadius
                 ),
                 minimumSize: const Size(250, 45), // Size of the button
               ),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Зареєструватися",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
+                    style: 
+                    GoogleFonts.openSans(
+                       color: Colors.black87,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        wordSpacing: 15),
-                  ),
+                        letterSpacing: 0.5
+                        ),
+                    ),
+                  
                 ],
               ),
             )
@@ -378,13 +420,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Номер телефону',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                      hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
@@ -411,13 +460,20 @@ int switcherIndex1 = 0;
                       pib = value;
                     });
                   },
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Пароль',
-                    hoverColor: Colors.black87,
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black87),
+                      hintStyle: GoogleFonts.openSans(
+                      // fontStyle: FontStyle.italic,
+                      fontSize: 15
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 5),
+                    hoverColor: Colors.black87,
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
                   cursorColor: Colors.black87,
                 ),
