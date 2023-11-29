@@ -39,154 +39,125 @@ class _RegistrationState extends State<Registration> {
     }
 
     return Scaffold(
-      body: Stack(
-        children: [
-          FractionallySizedBox(
-            widthFactor: 1,
-            heightFactor: 1,
-            child: Container(
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage('assets/registration/regscreen.jpg'),
-                fit: BoxFit.fill,
-              )),
-              //     child: Image.asset(
-              //   'assets/registration/regscreen.jpg',
-              // )
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
-          ),
-          Column(
-            children: [
-              const SizedBox(height: 35),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 250,
-                    height: 250,
-                    child: Image.asset(
-                      'assets/white_logo.png',
-                    ),
-                  )
-                ],
+      body: 
+        Stack(
+          children: [
+            FractionallySizedBox(
+              widthFactor: 1,
+              heightFactor: 1,
+              child: Container(
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/registration/regscreen.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //     child: Image.asset(
+                //   'assets/registration/regscreen.jpg',
+                // )
               ),
-              const SizedBox(height: 5),
-              // SWITCH BUTTONS
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
+            ),
+                    SingleChildScrollView(
+              child: Column(
                 children: [
-                  Column(
+                  const SizedBox(height: 35),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SlideSwitcher(
-                        children: [
-                          Text('Sign up',
-                              style: TextStyle(
-                                  color: switcherIndex1 == 0
-                                      ? Colors.black87
-                                      : Colors.white)),
-                          Text('Log in',
-                              style: TextStyle(
-                                  color: switcherIndex1 == 1
-                                      ? Colors.black87
-                                      : Colors.white)),
-                        ],
-                        onSelect: (index) =>
-                            setState(() => switcherIndex1 = index),
-                        containerHeight: 40,
-                        containerWight: 350,
-                        containerColor: Colors.black87.withOpacity(0.5),
-                        slidersColors: [
-                          const Color(0xFFFBCD72).withOpacity(0.9),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      if (switcherIndex1 == 0) ...[
-                        _buildSignUpFields()
-                      ] else ...[
-                        _buildLogInFields()
-                      ],
+                      SizedBox(
+                        width: 250,
+                        height: 250,
+                        child: Image.asset(
+                          'assets/white_logo.png',
+                        ),
+                      )
                     ],
                   ),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     setState(() {
-                  //       isSignUp = true;
-                  //       pib = phoneNumber = password = confirmPassword = '';
-                  //       nameParts = []; // Switch to Sign Up mode
-                  //     });
-                  //   },
-                  //   style: ElevatedButton.styleFrom(
-                  //     primary: isSignUp
-                  //         ? const Color(0xFFFBCD72).withOpacity(0.9)
-                  //         : Colors.black87.withOpacity(0.5),
-                  //     fixedSize: Size.fromHeight(getButtonHeight(isSignUp)),
-                  //   ),
-                  //   child: const Text('Sign Up'),
-                  // ),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     setState(() {
-                  //       isSignUp = false; // Switch to Log In mode
-                  //       pib = phoneNumber = password = confirmPassword = '';
-                  //       nameParts = [];
-                  //     });
-                  //   },
-                  //   style: ElevatedButton.styleFrom(
-                  //     primary: isSignUp
-                  //         ? Colors.black87.withOpacity(0.5)
-                  //         : const Color(0xFFFBCD72),
-                  //     fixedSize: Size.fromHeight(getButtonHeight(!isSignUp)),
-                  //   ),
-                  //   child: const Text('Log In'),
-                  // ),
-                ],
-              ),
-              // const SizedBox(height: 20),
-              //TEXT FIELD: PIB
-              // isSignUp ? _buildSignUpFields() : _buildLogInFields(),
-              const SizedBox(height: 10),
-              //TEXT FIELD: SKIP
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Home()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.black87.withOpacity(0.4),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 5),
+                  // SWITCH BUTTONS
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          SlideSwitcher(
+                            children: [
+                              Text('Sign up',
+                                  style: TextStyle(
+                                      color: switcherIndex1 == 0
+                                          ? Colors.black87
+                                          : Colors.white)),
+                              Text('Log in',
+                                  style: TextStyle(
+                                      color: switcherIndex1 == 1
+                                          ? Colors.black87
+                                          : Colors.white)),
+                            ],
+                            onSelect: (index) =>
+                                setState(() => switcherIndex1 = index),
+                            containerHeight: 40,
+                            containerWight: 350,
+                            containerColor: Colors.black87.withOpacity(0.5),
+                            slidersColors: [
+                              const Color(0xFFFBCD72).withOpacity(0.9),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          if (switcherIndex1 == 0) ...[
+                            _buildSignUpFields()
+                          ] else ...[
+                            _buildLogInFields()
+                          ],
+                        ],
                       ),
-                    ),
-                    // ignore: sized_box_for_whitespace
-                    child: Container(
-                      height: 35,
-                      width: 190, // You might want to adjust the width
-                      child: Center(
-                        child: Text(
-                          "Пропустити",
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
-                            fontSize: 16,
+                    ],
+                  ),
+                  // const SizedBox(height: 20),
+                  //TEXT FIELD: PIB
+                  // isSignUp ? _buildSignUpFields() : _buildLogInFields(),
+                  const SizedBox(height: 10),
+                  //TEXT FIELD: SKIP
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Home()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.black87.withOpacity(0.4),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        // ignore: sized_box_for_whitespace
+                        child: Container(
+                          height: 35,
+                          width: 190, // You might want to adjust the width
+                          child: Center(
+                            child: Text(
+                              "Пропустити",
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 16,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
     );
   }
 
@@ -204,33 +175,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'ПІБ',
-                      hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'ПІБ',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -244,33 +229,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Номер телефону',
-                    hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 8),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Номер телефону',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 8),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -284,33 +283,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Пароль',
-                      hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Пароль',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -324,33 +337,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Підтвердіть пароль',
-                      hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Підтвердіть пароль',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -367,8 +394,9 @@ class _RegistrationState extends State<Registration> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: const Color(0xFFFBCD72).withOpacity(0.9),
-                // const Color(0xFF3F945D).withOpacity(0.5)
+                primary: 
+                // const Color(0xFFFBCD72).withOpacity(0.9),
+                const Color(0xFF3F945D).withOpacity(0.9),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9), // BorderRadius
                 ),
@@ -379,15 +407,13 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   Text(
                     "Зареєструватися",
-                    style: 
-                    GoogleFonts.openSans(
-                       color: Colors.black87,
+                    style: GoogleFonts.openSans(
+                        color: Colors.white,
+                        // Colors.black87,
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
-                        letterSpacing: 0.5
-                        ),
-                    ),
-                  
+                        letterSpacing: 0.5),
+                  ),
                 ],
               ),
             )
@@ -410,33 +436,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Номер телефону',
-                      hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Номер телефону',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
@@ -450,33 +490,47 @@ class _RegistrationState extends State<Registration> {
               height: 50,
               width: 340, //change to percentage
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(1),
+                  color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      pib = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Пароль',
-                      hintStyle: GoogleFonts.openSans(
-                      // fontStyle: FontStyle.italic,
-                      fontSize: 15
+              child: Row(
+                children: [
+                  const Padding(
+                    padding:
+                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    child: Icon(
+                      Icons.check_sharp, 
+                      color: Colors.black45, 
+                      size: 17,
                     ),
-                    hoverColor: Colors.black87,
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent),
-                    ),
-                    contentPadding: const EdgeInsets.only(bottom: 5),
                   ),
-                  cursorColor: Colors.black87,
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+                      child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            pib = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Пароль',
+                          hintStyle: GoogleFonts.openSans(
+                              // fontStyle: FontStyle.italic,
+                              fontSize: 15),
+                          hoverColor: Colors.black87,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                          contentPadding: const EdgeInsets.only(bottom: 5),
+                        ),
+                        cursorColor: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],
