@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/presentation/screens/registration.dart';
+import 'package:zorya_2/presentation/screens/registration.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

@@ -1,9 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/presentation/screens/home.dart';
 import 'package:slide_switcher/slide_switcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zorya_2/presentation/screens/home.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -48,7 +48,7 @@ class _RegistrationState extends State<Registration> {
               child: Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('assets/registration/regscreen.jpg'),
+                  image: AssetImage('assets/registration/regscreen1.png'),
                   fit: BoxFit.fill,
                 )),
                 //     child: Image.asset(
@@ -58,7 +58,7 @@ class _RegistrationState extends State<Registration> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
+                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3)),
             ),
                     SingleChildScrollView(
               child: Column(
