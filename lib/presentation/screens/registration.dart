@@ -48,7 +48,7 @@ class _RegistrationState extends State<Registration> {
               child: Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('assets/registration/regscreen1.png'),
+                  image: AssetImage('assets/registration/regscreen.jpg'),
                   fit: BoxFit.fill,
                 )),
                 //     child: Image.asset(
@@ -58,12 +58,12 @@ class _RegistrationState extends State<Registration> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3)),
+                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
             ),
                     SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -71,7 +71,7 @@ class _RegistrationState extends State<Registration> {
                         width: 250,
                         height: 250,
                         child: Image.asset(
-                          'assets/white_logo.png',
+                          'assets/logos/white_logo.png',
                         ),
                       )
                     ],
