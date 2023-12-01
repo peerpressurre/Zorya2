@@ -248,13 +248,13 @@ class _AboutUsState extends State<AboutUs> {
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 7, bottom: 15),
+                    padding:
+                        const EdgeInsets.only(left: 20, top: 7, bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextButton(
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           child: Text(
                             'Будинок на Поділлі',
                             style: GoogleFonts.manrope(
@@ -267,14 +267,13 @@ class _AboutUsState extends State<AboutUs> {
                       ],
                     ),
                   ),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(left: 20, bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextButton(
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           child: Text(
                             'ЖК Садовий',
                             style: GoogleFonts.manrope(
@@ -287,14 +286,13 @@ class _AboutUsState extends State<AboutUs> {
                       ],
                     ),
                   ),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(left: 20, bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextButton(
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           child: Text(
                             'ЖК Східна Перлина',
                             style: GoogleFonts.manrope(
@@ -307,14 +305,13 @@ class _AboutUsState extends State<AboutUs> {
                       ],
                     ),
                   ),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(left: 20, bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TextButton(
-                          onPressed: () {
-                          },
+                          onPressed: () {},
                           child: Text(
                             'Будинок на Стрілецькій',
                             style: GoogleFonts.manrope(
@@ -327,37 +324,48 @@ class _AboutUsState extends State<AboutUs> {
                       ],
                     ),
                   ),
-                ],)
-              ),
-              Container(
-                color: const Color(0xFFF1F3F4),
-                height: 450,
-                child: Text('тут карта буде'),
-              ),
-              Container(
-                color: const Color(0xFFF5F6FA),
-                height: 460,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 58),
-                  child: Row(
-                    children: [
-                       Column(
+                ],
+              )),
+          Container(
+            color: const Color(0xFFF1F3F4),
+            height: 450,
+            child: Text('тут карта буде'),
+          ),
+          Container(
+            color: const Color(0xFFF5F6FA),
+            height: 460,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30, top: 58),
+              child: Column(children: [
+                Row(
+                  children: [
+                    Text(
+                      "Запитуйте",
+                      style: GoogleFonts.manrope(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xFF161D2D),
+                          height: 1),
+                    ),
+                    ]),
+                    Row(
                       children: [
-                         Text(
-                          "Запитуйте",
+                        Text(
+                          "Наші фахівці з радістю дадуть відповідь на всі \nваші запитання та підберуть найкращі \nпропозиції для будь-яких потреб, як для \nпроживання так і для інвестицій.",
                           style: GoogleFonts.manrope(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
-                              color: const Color(0xFF161D2D),
-                              letterSpacing: 0),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w300,
+                              color: Color(0xFF707479),
+                              height: 2
+                              ),
                         ),
-                    ])
-                    ]
-                  ),
-                ),
-              )
-        ],)
-      ),
+                      ],
+                    ),
+              ]),
+            ),
+          )
+        ],
+      )),
     );
   }
 }
