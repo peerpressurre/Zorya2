@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:zorya_2/presentation/screens/home.dart';
+import 'package:zorya_2/presentation/widgets/about_us.dart';
 
 class More extends StatelessWidget {
   const More({super.key});
@@ -11,7 +13,7 @@ class More extends StatelessWidget {
       child: Column(children: [
         const SizedBox(height: 10),
         Padding(
-          padding: const EdgeInsets.fromLTRB(15, 15, 15, 5),
+          padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -31,13 +33,13 @@ class More extends StatelessWidget {
             ],
           ),
         ),
-        // const SizedBox(height: 10),
         const Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-                width: 150,
-                height: 150,
+                // width: 130,
+                height: 40,
                 child: Image(
                   image: AssetImage('assets/logos/white_logo_long.jpeg'),
                 )
@@ -47,6 +49,107 @@ class More extends StatelessWidget {
                 )
           ],
         ),
+        // const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.only(left: 25, top: 20),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
+                },
+                child: Text(
+                  'Головна',
+                  style: GoogleFonts.notoSans(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      letterSpacing: 0.5),
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Новий Житловий Комплекс',
+                  style: GoogleFonts.notoSans(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      letterSpacing: 0.5),
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Фотозвіт',
+                  style: GoogleFonts.notoSans(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      letterSpacing: 0.5),
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AboutUs()),
+                  );
+                },
+                child: Text(
+                  'Про Нас',
+                  style: GoogleFonts.notoSans(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      letterSpacing: 0.5),
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 25),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Зв\'язатись з нами ',
+                  style: GoogleFonts.notoSans(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      letterSpacing: 0.5),
+                ),
+              )
+            ],
+          ),
+        )
       ]),
     );
   }

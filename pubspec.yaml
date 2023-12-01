@@ -26,4 +26,7 @@ flutter:
     - assets/registration/regscreen1.png
     - assets/logos/white_logo.png
     - assets/logos/white_logo_long.jpeg
+    - assets/logos/osbb_white_logo.jpg
+    - assets/logos/osbb_white_logo.png
+    - assets/logos/brown_logo.jpeg
     - assets/home/home_back.jpg
