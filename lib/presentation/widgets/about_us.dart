@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zorya_2/presentation/screens/home.dart';
 import 'package:zorya_2/presentation/screens/more_screen.dart';
+import 'package:zorya_2/presentation/widgets/test.dart';
+
+
+
 
 class AboutUs extends StatefulWidget {
   const AboutUs({super.key});
@@ -14,34 +18,21 @@ class _AboutUsState extends State<AboutUs> {
   String abtusHeadline =
       "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.";
 
+  //  String abtusHeadline =
+      // "Забудовник “Особняк Центр”-це провідна інвестиційно-девелоперська компанія із 17-річним досвідом, яка спеціалізується на об’єктах житлової та комерційної нерухомості.";
+
   String abtus1 =
       "Філософія компанії — впровадження \nінноваційних рішень та технологій для \nстворення сучасного житла, яке \nвідповідає стандартам якості.\n\nКоманда “Особняк Центр”- це \nексперти галузі, які мають ефективний \nдосвід та \nвеликий портфель успішно \nреалізованих проектів, розумінням \nактуальних \nта майбутніх потреб ринку.";
+  
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
           child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(
-              top: 20,
-              // left: 17
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                    width: 300,
-                    height: 90,
-                    child: Image(
-                      image: AssetImage('assets/logos/brown_logo.jpeg'),
-                    ))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 5, left: 17, bottom: 10),
+           Padding(
+            padding: const EdgeInsets.only(top: 5, left: 17, bottom: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -61,13 +52,24 @@ class _AboutUsState extends State<AboutUs> {
               ],
             ),
           ),
-          // const SizedBox(
-          //     width: 100,
-          //     height: 90,
-          //     child: Image(
-          //       image: AssetImage('assets/logos/osbb_white logo.jpg'),
-          //     )
-          //     ),
+           Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.03,
+              bottom: MediaQuery.of(context).size.height * 0.03,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.12,
+                    child: Image(
+                      image: AssetImage('assets/logos/brown_logo.jpeg'),
+                    ))
+              ],
+            ),
+          ),
+         
           Container(
               color: const Color(0xFF322721),
               height: 240,
@@ -121,7 +123,7 @@ class _AboutUsState extends State<AboutUs> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Home()),
+                                    builder: (context) => Home()),
                               );
                             },
                             child: Text(
@@ -168,11 +170,16 @@ class _AboutUsState extends State<AboutUs> {
               ],
             ),
           ),
-          Container(
-            color: Colors.black87,
-            width: 300,
-            height: 1,
-          ),
+          // FractionallySizedBox(
+          //   widthFactor: 0.8, // 80% of the available width
+          //   heightFactor: 0.1,
+            // child: 
+            Container(
+              color: Colors.black87,
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.001,
+            ),
+          // ),
           Padding(
             padding: const EdgeInsets.only(left: 30, top: 20, bottom: 20),
             child: Row(
@@ -337,35 +344,34 @@ class _AboutUsState extends State<AboutUs> {
             child: Padding(
               padding: const EdgeInsets.only(left: 30, top: 58),
               child: Column(children: [
+                Row(children: [
+                  Text(
+                    "Запитуйте",
+                    style: GoogleFonts.manrope(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xFF161D2D),
+                        height: 1),
+                  ),
+                ]),
                 Row(
                   children: [
                     Text(
-                      "Запитуйте",
+                      "Наші фахівці з радістю дадуть відповідь на всі \nваші запитання та підберуть найкращі \nпропозиції для будь-яких потреб, як для \nпроживання так і для інвестицій.",
                       style: GoogleFonts.manrope(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFF161D2D),
-                          height: 1),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w300,
+                          color: Color(0xFF707479),
+                          height: 2),
                     ),
-                    ]),
-                    Row(
-                      children: [
-                        Text(
-                          "Наші фахівці з радістю дадуть відповідь на всі \nваші запитання та підберуть найкращі \nпропозиції для будь-яких потреб, як для \nпроживання так і для інвестицій.",
-                          style: GoogleFonts.manrope(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w300,
-                              color: Color(0xFF707479),
-                              height: 2
-                              ),
-                        ),
-                      ],
-                    ),
+                  ],
+                ),
               ]),
             ),
           )
         ],
-      )),
+      )
+      ),
     );
   }
 }

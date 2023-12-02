@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:slide_switcher/slide_switcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zorya_2/presentation/screens/home.dart';
+import 'package:zorya_2/presentation/widgets/test.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -127,7 +128,7 @@ class _RegistrationState extends State<Registration> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Home()),
+                            MaterialPageRoute(builder: (context) =>  Home()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -390,7 +391,7 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()),
+                  MaterialPageRoute(builder: (context) => Home()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -543,7 +544,7 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()),
+                  MaterialPageRoute(builder: (context) =>  Home()),
                 );
               },
               style: ElevatedButton.styleFrom(

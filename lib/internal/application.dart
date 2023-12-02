@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zorya_2/presentation/screens/home.dart';
 import 'package:zorya_2/presentation/screens/more_screen.dart';
 import 'package:zorya_2/presentation/screens/registration.dart';
 import 'package:zorya_2/presentation/widgets/about_us.dart';
@@ -14,8 +15,10 @@ class Application extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const AboutUs()
+        home: 
+        // const AboutUs()
         // const Registration()
+        Bnb()
         );
   }
 }

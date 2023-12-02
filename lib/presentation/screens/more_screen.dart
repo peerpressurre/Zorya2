@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zorya_2/presentation/screens/home.dart';
 import 'package:zorya_2/presentation/widgets/about_us.dart';
+import 'package:zorya_2/presentation/widgets/test.dart';
 
 class More extends StatelessWidget {
   const More({super.key});
@@ -21,7 +22,7 @@ class More extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) =>  Home()),
                   );
                 },
                 icon: const Icon(
@@ -58,7 +59,7 @@ class More extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) =>  Home()),
                   );
                 },
                 child: Text(

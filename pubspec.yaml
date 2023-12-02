@@ -13,6 +13,8 @@ dependencies:
   google_fonts: ^6.1.0
   segmented_button_slide: ^1.0.4
   slide_switcher: ^1.1.2
+  animated_notch_bottom_bar: ^1.0.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
