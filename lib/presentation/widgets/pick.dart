@@ -5,14 +5,14 @@ import 'package:zorya_2/presentation/widgets/about_us.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'dart:developer';
 
-class Home extends StatefulWidget {
-   Home({super.key});
+class Pick extends StatefulWidget {
+   Pick({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Pick> createState() => _PickState();
 }
 
-class _HomeState extends State<Home> {
+class _PickState extends State<Pick> {
   
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-            image: AssetImage('assets/registration/regscreen.jpg'),
+            image: AssetImage('assets/pick/orig_pick.jpg'),
             fit: BoxFit.fill,
           )),
           //     child: Image.asset(

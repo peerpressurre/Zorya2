@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zorya_2/presentation/screens/home.dart';
+import 'package:zorya_2/presentation/screens/bnb.dart';
 import 'package:zorya_2/presentation/screens/more_screen.dart';
 import 'package:zorya_2/presentation/screens/registration.dart';
 import 'package:zorya_2/presentation/widgets/about_us.dart';

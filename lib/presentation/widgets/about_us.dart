@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zorya_2/presentation/screens/home.dart';
-import 'package:zorya_2/presentation/screens/more_screen.dart';
-import 'package:zorya_2/presentation/widgets/test.dart';
-
-
-
+import 'package:zorya_2/presentation/widgets/pick.dart';
+import 'package:magic_text/magic_text.dart';
 
 class AboutUs extends StatefulWidget {
   const AboutUs({super.key});
@@ -15,15 +11,67 @@ class AboutUs extends StatefulWidget {
 }
 
 class _AboutUsState extends State<AboutUs> {
-  String abtusHeadline =
-      "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.";
+  // String abtusHeadline =
+  //     "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.";
 
-  //  String abtusHeadline =
-      // "Забудовник “Особняк Центр”-це провідна інвестиційно-девелоперська компанія із 17-річним досвідом, яка спеціалізується на об’єктах житлової та комерційної нерухомості.";
+  MagicText abtusHeadline = MagicText(
+    "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.",
+    breakWordCharacter: '-',
+    smartSizeMode: true,
+    asyncMode: true,
+    maxLines: 1,
+    minFontSize: 10,
+    maxFontSize: 40,
+    textStyle: GoogleFonts.manrope(
+        fontSize: 10,
+        fontWeight: FontWeight.w600,
+        color: Colors.black87,
+        letterSpacing: 0.2),
+  );
 
-  String abtus1 =
-      "Філософія компанії — впровадження \nінноваційних рішень та технологій для \nстворення сучасного житла, яке \nвідповідає стандартам якості.\n\nКоманда “Особняк Центр”- це \nексперти галузі, які мають ефективний \nдосвід та \nвеликий портфель успішно \nреалізованих проектів, розумінням \nактуальних \nта майбутніх потреб ринку.";
-  
+  MagicText abtus1 = MagicText(
+      "Філософія компанії — впровадження \nінноваційних рішень та технологій для \nстворення сучасного житла, яке \nвідповідає стандартам якості.\n\nКоманда “Особняк Центр”- це \nексперти галузі, які мають ефективний \nдосвід та \nвеликий портфель успішно \nреалізованих проектів, розумінням \nактуальних та \nмайбутніх потреб ринку.",
+      breakWordCharacter: '-',
+      smartSizeMode: true,
+      asyncMode: true,
+      minFontSize: 20,
+      maxFontSize: 35,
+      textStyle: GoogleFonts.manrope(
+          fontSize: 20,
+          fontWeight: FontWeight.w300,
+          color: Colors.black87,
+          letterSpacing: 0));
+  // String abtus1 =
+  // "Філософія компанії — впровадження інноваційних рішень та технологій для \nстворення сучасного житла, яке відповідає стандартам якості.\n\nКоманда “Особняк Центр”- це експерти галузі, які мають ефективний досвід та \nвеликий портфель успішно реалізованих проектів, розумінням актуальних та \nмайбутніх потреб ринку.";
+
+  MagicText sitebutton = MagicText(
+    "Сайт забудовника",
+    breakWordCharacter: '-',
+    smartSizeMode: true,
+    asyncMode: true,
+    minFontSize: 7,
+    maxFontSize: 20,
+    textStyle: GoogleFonts.manrope(
+      fontSize: 10,
+      fontWeight: FontWeight.w600,
+      color: const Color(0xFF161D2D),
+    ),
+  );
+
+  MagicText ourbuildings = MagicText(
+    "Наші збудовані об'єкти",
+    breakWordCharacter: '-',
+    smartSizeMode: true,
+    asyncMode: false,
+    minFontSize: 15,
+    maxFontSize: 35,
+    textStyle: GoogleFonts.manrope(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+        letterSpacing: 0),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,28 +79,7 @@ class _AboutUsState extends State<AboutUs> {
       body: SingleChildScrollView(
           child: Column(
         children: [
-           Padding(
-            padding: const EdgeInsets.only(top: 5, left: 17, bottom: 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const More()),
-                    );
-                  },
-                  icon: const Icon(
-                    Icons.menu_rounded,
-                    color: Color(0xFF322721),
-                    size: 30,
-                  ),
-                )
-              ],
-            ),
-          ),
-           Padding(
+          Padding(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.03,
               bottom: MediaQuery.of(context).size.height * 0.03,
@@ -69,36 +96,34 @@ class _AboutUsState extends State<AboutUs> {
               ],
             ),
           ),
-         
+
           Container(
               color: const Color(0xFF322721),
               height: 240,
               child: Stack(children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.center ,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 200,
-                            // height: 150,
-                            child: Image(
-                              image: AssetImage(
-                                  'assets/logos/osbb_white_logo.png'),
-                            ),
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.center ,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 200,
+                          // height: 150,
+                          child: Image(
+                            image:
+                                AssetImage('assets/logos/osbb_white_logo.png'),
                           ),
-                        ],
-                      ),
-                      // Container(color: const Color(0xFF322721).withOpacity(0.5))
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    // Container(color: const Color(0xFF322721).withOpacity(0.5))
+                  ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 40),
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.020),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -122,8 +147,7 @@ class _AboutUsState extends State<AboutUs> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => Pick()),
                               );
                             },
                             child: Text(
@@ -153,101 +177,68 @@ class _AboutUsState extends State<AboutUs> {
           //   mainAxisAlignment: MainAxisAlignment.,
           //   children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30, top: 40, bottom: 30),
-            child: Row(
-              children: [
-                FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    abtusHeadline,
-                    style: GoogleFonts.manrope(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black87,
-                        letterSpacing: 0.2),
-                  ),
-                )
-              ],
-            ),
-          ),
-          // FractionallySizedBox(
-          //   widthFactor: 0.8, // 80% of the available width
-          //   heightFactor: 0.1,
-            // child: 
-            Container(
-              color: Colors.black87,
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.001,
-            ),
-          // ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, top: 20, bottom: 20),
-            child: Row(
-              children: [
-                FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    abtus1,
-                    style: GoogleFonts.manrope(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black87,
-                        letterSpacing: 0),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, bottom: 40),
-            child: Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          30.0), // Adjust the value for oval shape
-                    ),
-                    backgroundColor: Colors.white, // Background color
-                    side:
-                        const BorderSide(color: Color(0xFF161D2D), width: 2.0),
-                    fixedSize: const Size.fromHeight(40),
-                    // Border color
-                  ),
-                  child: Text(
-                    "Сайт забудовника",
-                    style: GoogleFonts.manrope(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xFF161D2D),
-                        letterSpacing: 0),
-                  ),
-                )
-              ],
-            ),
+            padding:
+                const EdgeInsets.only(left: 30, top: 40, bottom: 30, right: 30),
+            child: FittedBox(fit: BoxFit.contain, child: abtusHeadline),
           ),
           Container(
-              color: const Color(0xFF161D2D),
-              height: 596,
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 57, right: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Наші збудовані об'єкти",
-                        style: GoogleFonts.manrope(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                            letterSpacing: 0),
+            color: Colors.black87,
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.001,
+          ),
+          // ),
+          Padding(
+            padding: const EdgeInsets.only(left: 33, top: 20, right: 30),
+            child: FittedBox(fit: BoxFit.contain, child: abtus1),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.03,
+              bottom: MediaQuery.of(context).size.height * 0.04,
+            ),
+            child: Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5 > 300
+                      ? 300
+                      : MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.07 > 60
+                      ? 60
+                      : MediaQuery.of(context).size.height * 0.07,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            30.0), // Adjust the value for oval shape
                       ),
-                    ],
-                  ),
-                ),
-              ])),
+                      backgroundColor: Colors.white, // Background color
+                      side: const BorderSide(
+                          color: Color(0xFF161D2D), width: 2.0),
+                      // fixedSize: const Size.fromHeight(60),
+                      // Border color
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 2, right: 2),
+                      child: sitebutton,
+                    ),
+                  )),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+                color: const Color(0xFF161D2D),
+                height: 596,
+                 width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.08, 
+                    right: MediaQuery.of(context).size.width * 0.1,
+                    left: MediaQuery.of(context).size.width * 0.1),
+                  child: ourbuildings,
+                )),
+          ),
           Container(
               color: const Color(0xFFE8EBF2),
               height: 368,
@@ -370,8 +361,7 @@ class _AboutUsState extends State<AboutUs> {
             ),
           )
         ],
-      )
-      ),
+      )),
     );
   }
 }

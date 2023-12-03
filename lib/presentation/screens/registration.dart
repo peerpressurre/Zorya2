@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:slide_switcher/slide_switcher.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zorya_2/presentation/screens/home.dart';
-import 'package:zorya_2/presentation/widgets/test.dart';
+import 'package:zorya_2/presentation/widgets/pick.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -39,126 +38,130 @@ class _RegistrationState extends State<Registration> {
       }
     }
 
+    double phoneMaxHeight = 950;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: 
-        Stack(
-          children: [
-            FractionallySizedBox(
-              widthFactor: 1,
-              heightFactor: 1,
-              child: Container(
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/registration/regscreen.jpg'),
-                  fit: BoxFit.fill,
-                )),
-                //     child: Image.asset(
-                //   'assets/registration/regscreen.jpg',
-                // )
-              ),
+      body: Stack(
+        children: [
+          FractionallySizedBox(
+            widthFactor: 1,
+            heightFactor: 1,
+            child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage('assets/registration/regscreen.jpg'),
+                fit: BoxFit.fill,
+              )),
+              //     child: Image.asset(
+              //   'assets/registration/regscreen.jpg',
+              // )
             ),
-            Container(
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
-            ),
-                    SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 250,
-                        height: 250,
-                        child: Image.asset(
-                          'assets/logos/white_logo.png',
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  // SWITCH BUTTONS
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          SlideSwitcher(
-                            children: [
-                              Text('Sign up',
-                                  style: TextStyle(
-                                      color: switcherIndex1 == 0
-                                          ? Colors.black87
-                                          : Colors.white)),
-                              Text('Log in',
-                                  style: TextStyle(
-                                      color: switcherIndex1 == 1
-                                          ? Colors.black87
-                                          : Colors.white)),
-                            ],
-                            onSelect: (index) =>
-                                setState(() => switcherIndex1 = index),
-                            containerHeight: 40,
-                            containerWight: 350,
-                            containerColor: Colors.black87.withOpacity(0.5),
-                            slidersColors: [
-                              const Color(0xFFFBCD72).withOpacity(0.9),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          if (switcherIndex1 == 0) ...[
-                            _buildSignUpFields()
-                          ] else ...[
-                            _buildLogInFields()
-                          ],
-                        ],
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.5)),
+          ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                    height: screenHeight > phoneMaxHeight
+                        ? MediaQuery.of(context).size.height * 0.15
+                        : MediaQuery.of(context).size.height * 0.07),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.height * 0.25,
+                      child: Image.asset(
+                        'assets/logos/white_logo.png',
                       ),
-                    ],
-                  ),
-                  // const SizedBox(height: 20),
-                  //TEXT FIELD: PIB
-                  // isSignUp ? _buildSignUpFields() : _buildLogInFields(),
-                  const SizedBox(height: 10),
-                  //TEXT FIELD: SKIP
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) =>  Home()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.black87.withOpacity(0.4),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                    )
+                  ],
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                // SWITCH BUTTONS
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        SlideSwitcher(
+                          children: [
+                            Text('Sign up',
+                                style: TextStyle(
+                                    color: switcherIndex1 == 0
+                                        ? Colors.black87
+                                        : Colors.white)),
+                            Text('Log in',
+                                style: TextStyle(
+                                    color: switcherIndex1 == 1
+                                        ? Colors.black87
+                                        : Colors.white)),
+                          ],
+                          onSelect: (index) =>
+                              setState(() => switcherIndex1 = index),
+                          containerHeight: 40,
+                          containerWight: 350,
+                          containerColor: Colors.black87.withOpacity(0.5),
+                          slidersColors: [
+                            const Color(0xFFFBCD72).withOpacity(0.9),
+                          ],
                         ),
-                        // ignore: sized_box_for_whitespace
-                        child: Container(
-                          height: 35,
-                          width: 190, // You might want to adjust the width
-                          child: Center(
-                            child: Text(
-                              "Пропустити",
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.7),
-                                fontSize: 16,
-                              ),
+                        const SizedBox(height: 20),
+                        if (switcherIndex1 == 0) ...[
+                          _buildSignUpFields()
+                        ] else ...[
+                          _buildLogInFields()
+                        ],
+                      ],
+                    ),
+                  ],
+                ),
+                // const SizedBox(height: 20),
+                //TEXT FIELD: PIB
+                // isSignUp ? _buildSignUpFields() : _buildLogInFields(),
+                const SizedBox(height: 10),
+                //TEXT FIELD: SKIP
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Pick()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.black87.withOpacity(0.4),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      // ignore: sized_box_for_whitespace
+                      child: Container(
+                        height: 35,
+                        width: 190, // You might want to adjust the width
+                        child: Center(
+                          child: Text(
+                            "Пропустити",
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.7),
+                              fontSize: 16,
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -181,11 +184,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -235,11 +237,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -289,11 +290,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -343,11 +343,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -391,13 +390,13 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Home()),
+                  MaterialPageRoute(builder: (context) => Pick()),
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: 
-                // const Color(0xFFFBCD72).withOpacity(0.9),
-                const Color(0xFF3F945D).withOpacity(0.9),
+                primary:
+                    // const Color(0xFFFBCD72).withOpacity(0.9),
+                    const Color(0xFF3F945D).withOpacity(0.9),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(9), // BorderRadius
                 ),
@@ -442,11 +441,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -496,11 +494,10 @@ class _RegistrationState extends State<Registration> {
               child: Row(
                 children: [
                   const Padding(
-                    padding:
-                        EdgeInsets.fromLTRB(10, 15, 5, 10),
+                    padding: EdgeInsets.fromLTRB(10, 15, 5, 10),
                     child: Icon(
-                      Icons.check_sharp, 
-                      color: Colors.black45, 
+                      Icons.check_sharp,
+                      color: Colors.black45,
                       size: 17,
                     ),
                   ),
@@ -544,7 +541,7 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  Home()),
+                  MaterialPageRoute(builder: (context) => Pick()),
                 );
               },
               style: ElevatedButton.styleFrom(
