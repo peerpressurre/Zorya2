@@ -64,7 +64,7 @@ class _AboutUsState extends State<AboutUs> {
     smartSizeMode: true,
     asyncMode: false,
     minFontSize: 15,
-    maxFontSize: 35,
+    maxFontSize: 28,
     textStyle: GoogleFonts.manrope(
         fontSize: 15,
         fontWeight: FontWeight.w600,
@@ -236,7 +236,10 @@ class _AboutUsState extends State<AboutUs> {
                     top: MediaQuery.of(context).size.height * 0.08, 
                     right: MediaQuery.of(context).size.width * 0.1,
                     left: MediaQuery.of(context).size.width * 0.1),
-                  child: ourbuildings,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+                    child: ourbuildings,
+                  ),
                 )),
           ),
           Container(
