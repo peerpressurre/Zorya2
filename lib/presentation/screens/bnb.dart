@@ -36,23 +36,23 @@ class _BnbState extends State<Bnb> {
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: const Icon(Icons.info),
-            title: const Text('Про нас'),
-            activeColor: const Color(0xFF322721),
-            textAlign: TextAlign.center,
-          ),
-           BottomNavyBarItem(
             icon: const Icon(Icons.phone_rounded),
             title: const Text('Зв\'язок'),
             activeColor: const Color(0xFF322721),
             textAlign: TextAlign.center,
           ),
-          BottomNavyBarItem(
-            icon: const Icon(Icons.person),
-            title: const Text('Акаунт'),
+           BottomNavyBarItem(
+            icon: const Icon(Icons.more_horiz_rounded),
+            title: const Text('Зв\'язок'),
             activeColor: const Color(0xFF322721),
             textAlign: TextAlign.center,
           ),
+          // BottomNavyBarItem(
+          //   icon: const Icon(Icons.person),
+          //   title: const Text('Акаунт'),
+          //   activeColor: const Color(0xFF322721),
+          //   textAlign: TextAlign.center,
+          // ),
         ],
       ),
     );

@@ -40,7 +40,7 @@ class _RegistrationState extends State<Registration> {
 
     double phoneMaxHeight = 950;
     double screenHeight = MediaQuery.of(context).size.height;
-
+    
     return Scaffold(
       body: Stack(
         children: [
@@ -103,7 +103,8 @@ class _RegistrationState extends State<Registration> {
                           onSelect: (index) =>
                               setState(() => switcherIndex1 = index),
                           containerHeight: 40,
-                          containerWight: 350,
+                          containerWight: 180,
+                          // MediaQuery.of(context).size.width * 0.6,
                           containerColor: Colors.black87.withOpacity(0.5),
                           slidersColors: [
                             const Color(0xFFFBCD72).withOpacity(0.9),
@@ -170,14 +171,22 @@ class _RegistrationState extends State<Registration> {
   }
 
   Widget _buildSignUpFields() {
+    double phoneMaxWidth = 500;
+    double screenWidth = MediaQuery.of(context).size.width;
+     double phoneMaxHeight = 700;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 340, //change to percentage
+              height: screenHeight > phoneMaxHeight
+                        ? 50
+                        : 40,
+              width: screenWidth > phoneMaxWidth
+                        ? MediaQuery.of(context).size.width * 0.4
+                        : MediaQuery.of(context).size.width * 0.9, //change to percentage
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
@@ -223,14 +232,20 @@ class _RegistrationState extends State<Registration> {
             )
           ],
         ),
-        const SizedBox(height: 20),
+       SizedBox(height: screenHeight > phoneMaxHeight
+                        ? MediaQuery.of(context).size.height * 0.03
+                        : MediaQuery.of(context).size.height * 0.02),
         //TEXT FIELD: PHONE NUMBER
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 340, //change to percentage
+              height:  screenHeight > phoneMaxHeight
+                        ? 50
+                        : 40,
+              width: screenWidth > phoneMaxWidth
+                        ? MediaQuery.of(context).size.width * 0.4
+                        : MediaQuery.of(context).size.width * 0.9, //change to percentage
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
@@ -276,14 +291,20 @@ class _RegistrationState extends State<Registration> {
             )
           ],
         ),
-        const SizedBox(height: 20),
+       SizedBox(height: screenHeight > phoneMaxHeight
+                        ? MediaQuery.of(context).size.height * 0.03
+                        : MediaQuery.of(context).size.height * 0.02),
         //TEXT FIELD: PASSWORD
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 340, //change to percentage
+              height: screenHeight > phoneMaxHeight
+                        ? 50
+                        : 40,
+              width: screenWidth > phoneMaxWidth
+                        ? MediaQuery.of(context).size.width * 0.4
+                        : MediaQuery.of(context).size.width * 0.9, //change to percentage
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
@@ -329,14 +350,20 @@ class _RegistrationState extends State<Registration> {
             )
           ],
         ),
-        const SizedBox(height: 20),
+         SizedBox(height: screenHeight > phoneMaxHeight
+                        ? MediaQuery.of(context).size.height * 0.03
+                        : MediaQuery.of(context).size.height * 0.02),
         //TEXT FIELD: PASSWORD 2
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 340, //change to percentage
+              height: screenHeight > phoneMaxHeight
+                        ? 50
+                        : 40,
+              width: screenWidth > phoneMaxWidth
+                        ? MediaQuery.of(context).size.width * 0.4
+                        : MediaQuery.of(context).size.width * 0.9, //change to percentage
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
@@ -382,7 +409,9 @@ class _RegistrationState extends State<Registration> {
             )
           ],
         ),
-        const SizedBox(height: 30),
+         SizedBox(height: screenHeight > phoneMaxHeight
+                        ? MediaQuery.of(context).size.height * 0.03
+                        : MediaQuery.of(context).size.height * 0.025),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
