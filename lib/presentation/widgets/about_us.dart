@@ -14,36 +14,60 @@ class _AboutUsState extends State<AboutUs> {
   // String abtusHeadline =
   //     "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.";
 
-  MagicText abtusHeadline = MagicText(
+  MagicText abtusHeadlinePhone = MagicText(
     "Забудовник “Особняк Центр”-\nце провідна інвестиційно-\nдевелоперська \nкомпанія із 17-\nрічним досвідом, яка \nспеціалізується на \nоб’єктах житлової \nта комерційної \nнерухомості.",
     breakWordCharacter: '-',
     smartSizeMode: true,
     asyncMode: true,
-    maxLines: 1,
-    minFontSize: 10,
+    minFontSize: 20,
     maxFontSize: 40,
     textStyle: GoogleFonts.manrope(
-        fontSize: 10,
+        fontSize: 20,
         fontWeight: FontWeight.w600,
         color: Colors.black87,
         letterSpacing: 0.2),
   );
 
-  MagicText abtus1 = MagicText(
+  MagicText abtusHeadlineLaptop = MagicText(
+    "Забудовник “Особняк Центр” - це провідна інвестиційно-\nдевелоперська компанія із 17-річним досвідом, яка \nспеціалізується на об’єктах житлової та комерційної \nнерухомості.",
+    breakWordCharacter: '-',
+    smartSizeMode: true,
+    asyncMode: true,
+    minFontSize: 20,
+    maxFontSize: 40,
+    textStyle: GoogleFonts.manrope(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: Colors.black87,
+        letterSpacing: 0.2),
+  );
+
+  MagicText abtus1phone = MagicText(
       "Філософія компанії — впровадження \nінноваційних рішень та технологій для \nстворення сучасного житла, яке \nвідповідає стандартам якості.\n\nКоманда “Особняк Центр”- це \nексперти галузі, які мають ефективний \nдосвід та \nвеликий портфель успішно \nреалізованих проектів, розумінням \nактуальних та \nмайбутніх потреб ринку.",
       breakWordCharacter: '-',
       smartSizeMode: true,
       asyncMode: true,
-      minFontSize: 20,
-      maxFontSize: 35,
+      minFontSize: 15,
+      maxFontSize: 25,
       textStyle: GoogleFonts.manrope(
           fontSize: 20,
           fontWeight: FontWeight.w300,
           color: Colors.black87,
           letterSpacing: 0));
-  // String abtus1 =
-  // "Філософія компанії — впровадження інноваційних рішень та технологій для \nстворення сучасного житла, яке відповідає стандартам якості.\n\nКоманда “Особняк Центр”- це експерти галузі, які мають ефективний досвід та \nвеликий портфель успішно реалізованих проектів, розумінням актуальних та \nмайбутніх потреб ринку.";
 
+  MagicText abtus1laptop = MagicText(
+      "Філософія компанії — впровадження інноваційних рішень та технологій для створення сучасного житла, яке \nвідповідає стандартам якості.\n\nКоманда “Особняк Центр”- це експерти галузі, які мають ефективний досвід та великий портфель успішно \nреалізованих проектів, розумінням актуальних та майбутніх потреб ринку.",
+      breakWordCharacter: '-',
+      smartSizeMode: true,
+      asyncMode: true,
+      minFontSize: 15,
+      maxFontSize: 25,
+      textStyle: GoogleFonts.manrope(
+          fontSize: 20,
+          fontWeight: FontWeight.w300,
+          color: Colors.black87,
+          letterSpacing: 0));
+  
   MagicText sitebutton = MagicText(
     "Сайт забудовника",
     breakWordCharacter: '-',
@@ -63,10 +87,11 @@ class _AboutUsState extends State<AboutUs> {
     breakWordCharacter: '-',
     smartSizeMode: true,
     asyncMode: false,
-    minFontSize: 15,
+    minFontSize: 10,
     maxFontSize: 28,
+    // maxLines: 1,
     textStyle: GoogleFonts.manrope(
-        fontSize: 15,
+        fontSize: 10,
         fontWeight: FontWeight.w600,
         color: Colors.white,
         letterSpacing: 0),
@@ -74,6 +99,8 @@ class _AboutUsState extends State<AboutUs> {
 
   @override
   Widget build(BuildContext context) {
+     double phoneMaxWidth = 500;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -179,7 +206,10 @@ class _AboutUsState extends State<AboutUs> {
           Padding(
             padding:
                 const EdgeInsets.only(left: 30, top: 40, bottom: 30, right: 30),
-            child: FittedBox(fit: BoxFit.contain, child: abtusHeadline),
+            child: FittedBox(fit: BoxFit.contain, child: 
+            screenWidth > phoneMaxWidth
+                        ? abtusHeadlineLaptop
+                        : abtusHeadlinePhone,),
           ),
           Container(
             color: Colors.black87,
@@ -189,7 +219,10 @@ class _AboutUsState extends State<AboutUs> {
           // ),
           Padding(
             padding: const EdgeInsets.only(left: 33, top: 20, right: 30),
-            child: FittedBox(fit: BoxFit.contain, child: abtus1),
+            child: FittedBox(fit: BoxFit.contain, child:  
+            screenWidth > phoneMaxWidth
+                        ? abtus1laptop
+                        : abtus1phone, ),
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -230,14 +263,15 @@ class _AboutUsState extends State<AboutUs> {
             child: Container(
                 color: const Color(0xFF161D2D),
                 height: 596,
-                 width: double.infinity,
+                width: double.infinity,
                 child: Padding(
                   padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.08, 
-                    right: MediaQuery.of(context).size.width * 0.1,
-                    left: MediaQuery.of(context).size.width * 0.1),
+                      top: MediaQuery.of(context).size.height * 0.08,
+                      right: MediaQuery.of(context).size.width * 0.1,
+                      left: MediaQuery.of(context).size.width * 0.1),
                   child: Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01),
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.01),
                     child: ourbuildings,
                   ),
                 )),
