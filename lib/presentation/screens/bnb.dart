@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:zorya_2/presentation/screens/registration.dart';
 import 'package:zorya_2/presentation/widgets/about_us.dart';
@@ -13,6 +14,7 @@ class Bnb extends StatefulWidget {
 
 class _BnbState extends State<Bnb> {
   int _currentIndex = 0;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +73,7 @@ class _BnbState extends State<Bnb> {
     }
   }
 }
+
 
 // class Bnb extends StatefulWidget {
 //    Bnb({super.key});

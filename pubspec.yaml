@@ -20,6 +20,8 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   magic_text: ^0.0.3
   responsive_sizer: ^3.2.0
+  linkable: ^3.0.2
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
