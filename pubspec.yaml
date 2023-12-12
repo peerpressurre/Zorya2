@@ -39,4 +39,7 @@ flutter:
     - assets/logos/osbb_white_logo.png
     - assets/logos/brown_logo.jpeg
     - assets/home/home_back.jpg
+    - assets/home/q1.png
+    - assets/home/q1-s1.png
+    - assets/home/q1-s2.png
     - assets/pick/orig_pick.jpg
