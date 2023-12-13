@@ -39,18 +39,37 @@ class _PickState extends State<Pick> {
   int s2_counter = 0;
 
   // ScrollController _scrollController = ScrollController();
-  void s1_levels() {
-    s1_f0_opacity = 0.5;
-    s2_f0_opacity = 0.5;
-    s1_f1_opacity = 0.5;
-    s1_f2_opacity = 0.5;
-    s1_f3_opacity = 0.5;
-    s1_f4_opacity = 0.5;
-    s1_f5_opacity = 0.5;
-    s1_f6_opacity = 0.5;
-    s1_f7_opacity = 0.5;
-    s1_f8_opacity = 0.5;
-    s1_f9_opacity = 0.5;
+  void s1_levels(bool x) {
+    if(x == true) {
+      s1_f0_opacity = 0.5;
+      s2_f0_opacity = 0.5;
+      s1_f1_opacity = 0.5;
+      s1_f2_opacity = 0.5;
+      s1_f3_opacity = 0.5;
+      s1_f4_opacity = 0.5;
+      s1_f5_opacity = 0.5;
+      s1_f6_opacity = 0.5;
+      s1_f7_opacity = 0.5;
+      s1_f8_opacity = 0.5;
+      s1_f9_opacity = 0.5;
+      q1_opacity = 0.0;
+      q1_s2_opacity = 0.0;
+    }
+    else{
+      s1_f0_opacity = 0.0;
+      s2_f0_opacity = 0.0;
+      s1_f1_opacity = 0.0;
+      s1_f2_opacity = 0.0;
+      s1_f3_opacity = 0.0;
+      s1_f4_opacity = 0.0;
+      s1_f5_opacity = 0.0;
+      s1_f6_opacity = 0.0;
+      s1_f7_opacity = 0.0;
+      s1_f8_opacity = 0.0;
+      s1_f9_opacity = 0.0;
+      // q1_opacity = 0.0;
+      // q1_s2_opacity = 0.0;
+    }
   }
 
   @override
@@ -210,7 +229,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -242,7 +261,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -274,7 +293,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -306,7 +325,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -338,7 +357,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -370,7 +389,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -402,7 +421,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -434,7 +453,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -468,7 +487,7 @@ class _PickState extends State<Pick> {
                   onTap: () {
                     // Toggle the opacity on tap
                     setState(() {
-                      s1_levels();
+                      s1_levels(true);
                       q1_opacity = 0;
                       q1_s1_opacity = 0.0;
                     });
@@ -504,7 +523,7 @@ class _PickState extends State<Pick> {
                   onTap: () {
                     // Toggle the opacity on tap
                     setState(() {
-                      s1_levels();
+                      s1_levels(true);
                       q1_opacity = 0;
                       q1_s1_opacity = 0.0;
                     });
@@ -537,7 +556,7 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels();
+                    s1_levels(true);
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });

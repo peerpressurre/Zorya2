@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:scroll_navigation/misc/navigation_helpers.dart';
 import 'package:scroll_navigation/navigation/scroll_navigation.dart';
@@ -17,24 +16,28 @@ class Bnb extends StatelessWidget {
       height: 30,
       child: ScrollNavigation(
         bodyStyle: const NavigationBodyStyle(
-          background: Colors.white,
+          background: Color(0xFF322721),
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(0)),
         ),
         barStyle: NavigationBarStyle(
           position: NavigationPosition.bottom,
-          background: Color(0xFF322721).withOpacity(1),
-          activeColor: Colors.white,
-          deactiveColor: Colors.white54,
+          background: Colors.white,
+          activeColor: Color(0xFF322721),
+          deactiveColor: Color(0xFF322721).withOpacity(0.7),
           // Color(0xFF322721),
           elevation: 0.0,
         ),
+        identiferStyle:
+            NavigationIdentiferStyle(color: Color(0xFF322721), width: 6, borderRadius: BorderRadius.circular(3)),
         pages: [
           Pick(),
           const AboutUs(),
           const Registration(),
         ],
         items: const [
-          ScrollNavigationItem(icon: Icon(Icons.home, size: 20),),
+          ScrollNavigationItem(
+            icon: Icon(Icons.home),
+          ),
           ScrollNavigationItem(icon: Icon(Icons.phone_rounded)),
           ScrollNavigationItem(icon: Icon(Icons.person)),
         ],
