@@ -71,6 +71,7 @@ class _PickState extends State<Pick> {
       // q1_s2_opacity = 0.0;
     }
   }
+  bool isLevel = true;
 
   @override
   void initState() {
@@ -102,7 +103,8 @@ class _PickState extends State<Pick> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF322721),
+      backgroundColor: Colors.white,
+      // const Color(0xFF322721),
         body: Stack(children: [
       ListView(scrollDirection: Axis.horizontal,
       controller: _scrollController,
@@ -229,7 +231,8 @@ class _PickState extends State<Pick> {
                 onTap: () {
                   // Toggle the opacity on tap
                   setState(() {
-                    s1_levels(true);
+                    s1_levels(isLevel);
+                    isLevel = isLevel == true? false : true;
                     q1_opacity = 0;
                     q1_s1_opacity = 0.0;
                   });
@@ -581,6 +584,7 @@ class _PickState extends State<Pick> {
       ]),
         Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Column(
                       children: [
@@ -649,14 +653,18 @@ class _PickState extends State<Pick> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                    color: const Color(0xFF322721), height: double.infinity, width: 30)
+                    color: Colors.white,
+                    //  const Color(0xFF322721),
+                      height: double.infinity, width: 30)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                    color: const Color(0xFF322721), height: double.infinity, width: 30)
+                    color: Colors.white,
+                    // const Color(0xFF322721),
+                     height: double.infinity, width: 30)
               ],
             )
     ]));
