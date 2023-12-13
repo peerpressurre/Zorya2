@@ -22,6 +22,7 @@ dependencies:
   responsive_sizer: ^3.2.0
   linkable: ^3.0.2
   url_launcher: ^6.1.14
+  scroll_navigation: ^1.3.2
 
 dev_dependencies:
   flutter_test:
@@ -42,4 +43,15 @@ flutter:
     - assets/home/q1.png
     - assets/home/q1-s1.png
     - assets/home/q1-s2.png
+    - assets/home/s2-f0.png
+    - assets/home/s1-f0.png
+    - assets/home/s1-f1.png
+    - assets/home/s1-f2.png
+    - assets/home/s1-f3.png
+    - assets/home/s1-f4.png
+    - assets/home/s1-f5.png
+    - assets/home/s1-f6.png
+    - assets/home/s1-f7.png
+    - assets/home/s1-f8.png
+    - assets/home/s1-f9.png
     - assets/pick/orig_pick.jpg
