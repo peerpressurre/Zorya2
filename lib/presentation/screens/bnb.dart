@@ -21,14 +21,16 @@ class Bnb extends StatelessWidget {
         ),
         barStyle: NavigationBarStyle(
           position: NavigationPosition.bottom,
-          background: Colors.white,
+          background: 
+          // Color(0xFFE8EBF2),
+          Colors.white,
           activeColor: Color(0xFF322721),
           deactiveColor: Color(0xFF322721).withOpacity(0.7),
           // Color(0xFF322721),
           elevation: 0.0,
         ),
         identiferStyle:
-            NavigationIdentiferStyle(color: Color(0xFF322721), width: 6, borderRadius: BorderRadius.circular(3)),
+            NavigationIdentiferStyle(color: Color(0xFF322721), width: 5, borderRadius: BorderRadius.circular(0)),
         pages: [
           Pick(),
           const AboutUs(),
