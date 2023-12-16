@@ -54,6 +54,7 @@ class _PickState extends State<Pick> {
       q1_opacity = 0.0;
       q1_s2_opacity = 0.0;
       q1_s1_opacity = 0.0;
+      isLevels1 = true;
     } else if (x == false) {
       s1_f0_opacity = 0.0;
       s2_f0_opacity = 0.0;
@@ -68,6 +69,7 @@ class _PickState extends State<Pick> {
       s1_f9_opacity = 0.0;
       q1_opacity = 0.4;
       s1_counter = 0;
+      isLevels1 = false;
       // q1_s2_opacity = 0.0;
     }
   }
@@ -77,7 +79,7 @@ class _PickState extends State<Pick> {
     q1_opacity = 0.4;
   }
 
-  bool isLevel = true;
+  bool isLevels1 = false;
 
   @override
   void initState() {
@@ -111,10 +113,52 @@ class _PickState extends State<Pick> {
     return Scaffold(
         backgroundColor:
             // Colors.white,
-            const Color(0xFFE8EBF2),
+            const Color(0xFF644E43),
         body: Stack(children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.only(bottom: 30),
+                height: 550,
+                width: MediaQuery.of(context).size.width * 0.97,
+                color: 
+                Colors.white
+                // const Color(0xFF322721),
+              ),
+            ],
+          ),
+          // Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     children: [
+                // Container(
+                //   margin: EdgeInsets.only(top: 15, bottom: 15, left: 20),
+                //     width: MediaQuery.of(context).size.width * 0.5,
+                //     // height: MediaQuery.of(context).size.height * 0.2,
+                //     child: const Image(
+                //       image: AssetImage('assets/logos/white_logo_long.jpeg'),
+                //     )),
+                  //    Container(
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(100),
+                  //     color: const Color(0xFFFBCD72).withOpacity(0.9),
+                  //     // Colors.black87.withOpacity(0.5),
+                  //   ),
+                  //   margin: const EdgeInsets.only(top: 15, bottom: 10, left: 100),
+                  //   child: IconButton(
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           refresh();
+                  //         });
+                  //       },
+                  //       icon: const Icon(Icons.refresh_sharp,
+                  //           size: 27, color: Colors.black87)),
+            //       // ),
+            //   ],
+            // ),
           Container(
-            margin: EdgeInsets.only(left: 15, right: 15),
+            margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01, right: 15, top: 40),
             decoration:
                 BoxDecoration(borderRadius: BorderRadiusDirectional.circular(20)
                     // BorderRadius.circular(50),
@@ -185,7 +229,7 @@ class _PickState extends State<Pick> {
                               }
                               // q1_s1_opacity = q1_s1_opacity == 0.0 ? 0.5 : 0.0;
                               // // q1_opacity = 0;
-                              // q1_s2_opacity = 0.0;
+                              q1_s2_opacity = 0.0;
                             });
                           },
                           child: Opacity(
@@ -212,9 +256,13 @@ class _PickState extends State<Pick> {
                           onTap: () {
                             // Toggle the opacity on tap
                             setState(() {
+                              if(isLevels1 == false)
+                              {
                               q1_s2_opacity = q1_s2_opacity == 0.0 ? 0.5 : 0.0;
                               // q1_opacity = 0;
                               q1_s1_opacity = 0.0;
+                              s1_counter = 0;
+                            }
                             });
                           },
                           child: Opacity(
@@ -241,7 +289,7 @@ class _PickState extends State<Pick> {
                           onTap: () {
                             // Toggle the opacity on tap
                             setState(() {
-                              isLevel = true;
+                              isLevels1 = true;
                               // s1_levels(isLevel);
                               // isLevel = isLevel == true ? false : true;
                               // q1_opacity = 0;
@@ -561,6 +609,35 @@ class _PickState extends State<Pick> {
                               )),
                         ),
                       ),
+                       Container(
+                        height: 67,
+                        // MediaQuery.of(context).size.height * 0.55,
+                        margin: const EdgeInsets.only(
+                            left: 337, right: 30, top: 441),
+                        // MediaQuery.of(context).size.height * 0.137),
+                        child: GestureDetector(
+                          onTap: () {
+                            // Toggle the opacity on tap
+                            setState(() {
+                              s1_levels(true);
+                              q1_opacity = 0;
+                              q1_s1_opacity = 0.0;
+                            });
+                          },
+                          child: Opacity(
+                              opacity: s2_f0_opacity,
+                              child: Container(
+                                width: 392,
+                                // MediaQuery.of(context).size.width * 1.87,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/home/s2-f1.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              )),
+                        ),
+                      ),
                     ],
                   )
                 ]),
@@ -577,73 +654,60 @@ class _PickState extends State<Pick> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: const Color(0xFFFBCD72).withOpacity(0.9),
-                      // Colors.black87.withOpacity(0.5),
+                 
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Column(
+                      children: [
+                        SlideSwitcher(
+                          onSelect: (index) {
+                            setState(() {
+                              switcherIndex1 = index;
+                              if (switcherIndex1 == 0) {
+                                _scrollController.animateTo(
+                                  0,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                );
+                              } else if (switcherIndex1 == 1) {
+                                _scrollController.animateTo(
+                                  266,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                );
+                              }
+                              if (_scrollController.position.pixels < 266) {
+                                switcherIndex1 = 0;
+                              } else {
+                                switcherIndex1 = 1;
+                              }
+                            });
+                          },
+                          containerHeight: 35,
+                          containerWight: 180,
+                          containerColor: Colors.black87.withOpacity(0.5),
+                          slidersColors: [
+                            const Color(0xFFFBCD72).withOpacity(0.9),
+                          ],
+                          children: [
+                            Text(
+                              'Сектор 1',
+                              style: TextStyle(
+                                  color: switcherIndex1 == 0
+                                      ? Colors.black87
+                                      : Colors.white),
+                            ),
+                            Text(
+                              'Сектор 2',
+                              style: TextStyle(
+                                  color: switcherIndex1 == 1
+                                      ? Colors.black87
+                                      : Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    margin: const EdgeInsets.only(bottom: 20, right: 20),
-                    child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            refresh();
-                          });
-                        },
-                        icon: const Icon(Icons.refresh_sharp,
-                            size: 27, color: Colors.black87)),
-                  ),
-                  Column(
-                    children: [
-                      SlideSwitcher(
-                        onSelect: (index) {
-                          setState(() {
-                            switcherIndex1 = index;
-                            if (switcherIndex1 == 0) {
-                              _scrollController.animateTo(
-                                0,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut,
-                              );
-                            } else if (switcherIndex1 == 1) {
-                              _scrollController.animateTo(
-                                266,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut,
-                              );
-                            }
-                            if (_scrollController.position.pixels < 266) {
-                              switcherIndex1 = 0;
-                            } else {
-                              switcherIndex1 = 1;
-                            }
-                          });
-                        },
-                        containerHeight: 40,
-                        containerWight: 180,
-                        containerColor: Colors.black87.withOpacity(0.5),
-                        slidersColors: [
-                          const Color(0xFFFBCD72).withOpacity(0.9),
-                        ],
-                        children: [
-                          Text(
-                            'Сектор 1',
-                            style: TextStyle(
-                                color: switcherIndex1 == 0
-                                    ? Colors.black87
-                                    : Colors.white),
-                          ),
-                          Text(
-                            'Сектор 2',
-                            style: TextStyle(
-                                color: switcherIndex1 == 1
-                                    ? Colors.black87
-                                    : Colors.white),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                    ],
                   ),
                 ],
               ),
@@ -657,26 +721,26 @@ class _PickState extends State<Pick> {
               //   ),
             ],
           ),
-          //  Row(
-          //         mainAxisAlignment: MainAxisAlignment.start,
-          //         children: [
-          //           Container(
-          //               color:
-          //               // Colors.white,
-          //                const Color(0xFF322721),
-          //                 height: double.infinity, width: 20)
-          //         ],
-          //       ),
-          //       Row(
-          //         mainAxisAlignment: MainAxisAlignment.end,
-          //         children: [
-          //           Container(
-          //               color:
-          //               // Colors.white,
-          //               const Color(0xFF322721),
-          //                height: double.infinity, width: 20)
-          //         ],
-          //       )
+           Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                        color:
+                        // Colors.white,
+                         const Color(0xFF644E43),
+                          height: double.infinity, width: 15)
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                        color:
+                        // Colors.white,
+                        const Color(0xFF644E43),
+                         height: double.infinity, width: 15)
+                  ],
+                )
         ]));
   }
 }

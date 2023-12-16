@@ -22,11 +22,14 @@ class Bnb extends StatelessWidget {
         barStyle: NavigationBarStyle(
           position: NavigationPosition.bottom,
           background: 
-          // Color(0xFFE8EBF2),
-          Colors.white,
-          activeColor: Color(0xFF322721),
-          deactiveColor: Color(0xFF322721).withOpacity(0.7),
           // Color(0xFF322721),
+          Colors.white,
+          activeColor: 
+          // Colors.white,
+          Color(0xFF322721),
+          deactiveColor: 
+          // Colors.white.withOpacity(0.7),
+          Color(0xFF322721).withOpacity(0.7),
           elevation: 0.0,
         ),
         identiferStyle:
